@@ -1,0 +1,14 @@
+.containerCardSprints{
+    background-color: #6A1B9A;
+    padding: 0.5vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0.4rem;
+}
+
+.containerCardSprints p{
+    color: white;
+    font-family: 'Georgia', sans-serif;
+}
