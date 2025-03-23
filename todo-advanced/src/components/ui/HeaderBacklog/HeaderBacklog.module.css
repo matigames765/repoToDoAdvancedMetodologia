@@ -1,0 +1,15 @@
+.containerHeaderBacklog{
+    width: 100vw;
+    height: 5vw;
+    background-color: #6A1B9A;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.titleHeader{
+    padding: 0.4vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    color: rgb(248, 243, 243)
+}
