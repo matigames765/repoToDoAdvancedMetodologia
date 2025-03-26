@@ -4,9 +4,6 @@
   background-color: #f9f8f8;
   border-radius: 0.4rem;
   padding: 0.4rem;
-  position: absolute;
-  top: 4.8rem;
-  right: 0;
   margin: 1vw;
 }
 .containerTasksBacklog {
@@ -16,7 +13,7 @@
   margin: 1rem;
 }
 .headerBacklog {
-  background-color: #6a1b9a;
+  background-color: var(--color-principal);
   border-radius: 0.4rem;
   color: #fff;
   display: flex;
@@ -26,7 +23,7 @@
 }
 .buttonAddTask {
   margin-top: 0.5rem;
-  background-color: #9c27b0;
+  background-color: var(--botones-principales);
   width: 5vw;
   height: 5vh;
   border-radius: 0.4rem;
@@ -43,7 +40,7 @@
 }
 
 .tasks {
-  background-color: #6a1b9a;
+  background-color: var(--color-principal);
   padding: 2rem;
   border-radius: 0.4rem;
   display: flex;

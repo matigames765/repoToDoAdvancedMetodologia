@@ -1,5 +1,5 @@
 .containerCardSprints{
-    background-color: #6A1B9A;
+    background-color: var(--color-principal);
     padding: 0.5vw;
     display: flex;
     flex-direction: column;

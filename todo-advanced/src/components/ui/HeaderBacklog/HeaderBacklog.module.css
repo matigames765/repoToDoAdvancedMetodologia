@@ -1,7 +1,7 @@
 .containerHeaderBacklog{
     width: 100vw;
     height: 5vw;
-    background-color: #6A1B9A;
+    background-color: var(--color-principal);
     display: flex;
     justify-content: flex-end;
 }

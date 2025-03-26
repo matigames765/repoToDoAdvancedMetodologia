@@ -7,8 +7,11 @@ export const BacklogScreen = () => {
   return (
     <div className={styles.containerBacklogScreen}>
       <HeaderBacklog />
-      <ColumnSprints />
-      <ColumnTasks />
+
+      <div className={styles.containerMain}>
+        <ColumnSprints />
+        <ColumnTasks />
+      </div>
     </div>
   );
 };

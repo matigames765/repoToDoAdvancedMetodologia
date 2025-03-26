@@ -1,4 +1,9 @@
-*{
-    margin: 0;
-    padding: 0;
+* {
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --botones-principales: #9c27b0;
+  --color-principal: #6a1b9a;
 }
