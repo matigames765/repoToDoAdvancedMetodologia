@@ -1,6 +1,6 @@
-import styles from './HeaderBacklog.module.css'
+import styles from './Header.module.css'
 
-export const HeaderBacklog = () => {
+export const Header = () => {
   return (
     <div className={styles.containerHeaderBacklog}>
         <h2 className={styles.titleHeader}>administrador de tareas</h2>

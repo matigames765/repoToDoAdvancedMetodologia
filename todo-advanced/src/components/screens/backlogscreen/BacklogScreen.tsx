@@ -1,15 +1,15 @@
-import { ColumnSprints } from "../../ui/ColumnSprints/ColumnSprints";
+import { ColumnSprints} from "../../ui/ColumnSprints/ColumnSprints";
 import { ColumnTasks } from "../../ui/ColumnTasks/ColumnTasksBacklog";
-import { HeaderBacklog } from "../../ui/HeaderBacklog/HeaderBacklog";
+import { Header } from "../../ui/Header/Header";
 import styles from "./BacklogScreen.module.css";
 
 export const BacklogScreen = () => {
   return (
     <div className={styles.containerBacklogScreen}>
-      <HeaderBacklog />
+      <Header />
 
       <div className={styles.containerMain}>
-        <ColumnSprints />
+        <ColumnSprints texto="volver" />
         <ColumnTasks />
       </div>
     </div>
