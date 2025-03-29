@@ -12,8 +12,10 @@ export const ProgressTasks = () => {
       </div>
       <div className={styles.containerStatusTasks}>
         <div className={styles.containerPending}>
-          <h1>Pendiente</h1>
-          {/* <TaskCard /> */}
+          <div className={styles.containerInsidePending}>
+            <h1>Pendiente</h1>
+            <TaskCard /> 
+          </div>
         </div>
         <div className={styles.containerInProgress}>
           <h1>En Progreso</h1>

@@ -1,0 +1,54 @@
+.containerTaskCard{
+    width: 23vw;
+    height: 7vw;
+    background-color: #F8F9FA;
+    border-radius: 0.4rem;
+}
+.contentTaskCard{
+    padding: 0.3vw;
+}
+
+.buttonsTasks{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.buttonSentToBacklog{
+    margin-top: 1vh;
+    padding: 1px;
+    background-color: var(--botones-principales);
+    width: 8vw;
+    height: 4vh;
+    border-radius: 0.4rem;
+    color: white;
+    border: none;
+    transition: background-color 0.7s ease, color 0.7s ease, border 0.7s ease;
+}
+
+.buttonSentToBacklog:hover{
+    cursor: pointer;
+    background-color: #f9f8f8;
+    color: black;
+    border: 1px solid black;
+}
+
+.buttonsHandleTasks{
+    margin-top: 1vh;
+    background-color: #9C27B0;
+    padding: 1px;
+    background-color: var(--botones-principales);
+    width: 2.5vw;
+    height: 4vh;
+    border-radius: 0.4rem;
+    color: white;
+    border: none;
+    transition: background-color 0.7s ease, color 0.7s ease, border 0.7s ease;
+}
+
+.buttonsHandleTasks:hover{
+    cursor: pointer;
+    background-color: #f9f8f8;
+    color: black;
+    border: 1px solid black;
+}
