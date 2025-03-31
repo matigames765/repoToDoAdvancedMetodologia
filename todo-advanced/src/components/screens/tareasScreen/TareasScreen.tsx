@@ -8,7 +8,7 @@ export const TareasScreen = () => {
     <div>
       <Header />
       <div className={styles.containerMain}>
-        <ColumnSprints texto="Backlog" />
+        <ColumnSprints texto="Backlog" link="backlog" />
         <ProgressTasks />
       </div>
     </div>

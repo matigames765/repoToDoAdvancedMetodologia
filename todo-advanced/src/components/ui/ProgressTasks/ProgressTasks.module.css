@@ -4,6 +4,7 @@
     margin: 1vw;
     border-radius: 0.4rem;
     background-color: #f9f8f8;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
 }
 
 .containerHeaderProgressTasks{
