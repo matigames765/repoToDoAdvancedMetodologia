@@ -14,6 +14,10 @@
 .buttonVolverColumnSprints{
     margin-top: 0.5rem;
     background-color: var(--botones-principales);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
     width: 5vw;
     height: 5vh;
     border-radius: 0.4rem;

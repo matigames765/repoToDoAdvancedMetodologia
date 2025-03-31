@@ -1,5 +1,5 @@
-import { BacklogScreen} from "./components/screens/backlogscreen/BacklogScreen"
-import { TareasScreen } from "./components/screens/tareasScreen/TareasScreen"
+// import { BacklogScreen} from "./components/screens/backlogscreen/BacklogScreen"
+// import { TareasScreen } from "./components/screens/tareasScreen/TareasScreen"
 import { AppRouter } from "./routes/AppRouter"
 
 

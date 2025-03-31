@@ -9,7 +9,7 @@ export const BacklogScreen = () => {
       <Header />
 
       <div className={styles.containerMain}>
-        <ColumnSprints texto="volver" link="/" />
+        <ColumnSprints texto="Volver" link="/" />
         <ColumnTasks />
       </div>
     </div>
