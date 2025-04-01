@@ -1,1 +1,1 @@
-export const API_URL = 'http://localhost:3000/backlog'
+export const APIBACKLOG_URL = 'http://localhost:3000/backlog'

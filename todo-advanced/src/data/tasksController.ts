@@ -1,0 +1,73 @@
+import axios from "axios";
+import { ITarea } from "../types/ITarea";
+import { APIBACKLOG_URL } from "../utils/constantes";
+import { editBacklog } from "../http/backLog";
+
+//obtenemos las tareas
+export const getAllTareasController = async (): Promise<ITarea[] | undefined> => {
+    try {
+      const response = await axios.get<{tareas: ITarea[]}>(APIBACKLOG_URL);
+      return response.data.tareas;
+    } catch (error) {
+      console.log("Error al traer las tareas ", error);
+    }
+}
+
+//creamos una tarea
+
+export const createTaskController = async (newTask: ITarea) => {
+    try {
+
+        const tasksBd = await getAllTareasController()
+
+        if(tasksBd){
+            editBacklog([...tasksBd, newTask])
+        }else{
+            editBacklog([newTask])
+        }
+        
+        return newTask
+    } catch (error) {
+      console.log("Error al crear la tarea", error);
+    }
+  };
+
+  //funcion para actaulizar una tarea
+
+export const editTaskController = async(updatedTask: ITarea) => {
+    try{
+        const tasksBd = await getAllTareasController()
+
+        if(tasksBd){
+            const newTasks = tasksBd.map((task) => (
+                task.id === updatedTask.id ? {...task, ...updatedTask}: task
+            ))
+
+            editBacklog(newTasks)
+
+        }
+
+        return updatedTask
+    }catch(error){
+        console.log("Error al actualizar la tarea, " +  error)
+    }
+}
+
+//funcion para eliminar una tarea
+
+export const deleteTaskController = async (idTask: string) => {
+    try {
+      const tasksBd = await getAllTareasController()
+
+      if (tasksBd){
+        const newTasks = tasksBd.filter((task) => (
+            task.id !== idTask))
+
+        editBacklog(newTasks)
+      }
+    } catch (error) {
+      console.log("No se pudo eliminar la tarea", error);
+    }
+  };
+  
+
