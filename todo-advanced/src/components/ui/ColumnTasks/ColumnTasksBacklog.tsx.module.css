@@ -1,6 +1,6 @@
 .containerPrincipalColumnTasks {
   width: 76vw;
-  height: 78vh;
+  height: auto;
   background-color: #f9f8f8;
   border-radius: 0.4rem;
   padding: 0.4rem;
@@ -10,7 +10,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 1rem;
+  
+  margin: 0,5rem;
 }
 .headerBacklog {
   background-color: var(--color-principal);
@@ -38,12 +39,7 @@
   color: black;
   border: 1px solid black;
 }
-
-.tasks {
-  background-color: var(--color-principal);
-  padding: 2rem;
-  border-radius: 0.4rem;
+.tasks{
   display: flex;
-  margin: 0.5rem;
-  color: #fff;
+  justify-content: center;
 }

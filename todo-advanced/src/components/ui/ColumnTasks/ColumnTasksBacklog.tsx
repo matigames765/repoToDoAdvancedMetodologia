@@ -1,30 +1,45 @@
 import { useState } from "react";
 import styles from "./ColumnTasksBacklog.tsx.module.css";
 import { ModalTask } from "../ModalTask/ModalTask";
-export const ColumnTasks = () => {
+import { TaskCardBacklog } from "../TaskCardBacklog/TaskCardBacklog";
 
-  const [openModalTask, setOpenModalTask] = useState(false)
+export const ColumnTasks = () => {
+  const [openModalTask, setOpenModalTask] = useState(false);
 
   const handleCloseModal = () => {
-    setOpenModalTask(false)
-  }
+    setOpenModalTask(false);
+  };
   return (
     <>
-    <div className={styles.containerPrincipalColumnTasks}>
-      <div className={styles.containerTasksBacklog}>
-        <h2>Backlog</h2>
-      </div>
-      <div className={styles.headerBacklog}>
-        <h3>Tareas</h3>
+      <div className={styles.containerPrincipalColumnTasks}>
+        <div className={styles.containerTasksBacklog}>
+          <h2>Backlog</h2>
+        </div>
+        <div className={styles.headerBacklog}>
+          <h3>Tareas</h3>
 
-        <button className={styles.buttonAddTask} onClick={() => {
-          setOpenModalTask(true)
-        }}> añadir tarea +</button>
+          <button
+            className={styles.buttonAddTask}
+            onClick={() => {
+              setOpenModalTask(true);
+            }}
+          >
+            {" "}
+            añadir tarea +
+          </button>
+        </div>
+        <div className={styles.tasks}>
+          <TaskCardBacklog
+            tarea={{
+              titulo: "titulo del back",
+              descripcion: "descipcion de una tarea del backlog",
+              estado: "anduviendo",
+              fechaLimite: "2 de abril",
+            }}
+          />
+        </div>
       </div>
-      <div className={styles.tasks}>
-
-      </div>
-    </div>
-    {openModalTask && <ModalTask handleCloseModal={handleCloseModal}/>}</>
+      {openModalTask && <ModalTask handleCloseModal={handleCloseModal} />}
+    </>
   );
 };
