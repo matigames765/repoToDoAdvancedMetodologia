@@ -74,6 +74,7 @@ export const useTareas = () => {
         crearTarea,
         deleteTarea,
         actualizarTarea,
-        setearArrayTareas
+        setearArrayTareas,
+        tareas
     }
 }
