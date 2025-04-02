@@ -1,6 +1,6 @@
 .containerPrincipalColumnTasks {
   width: 76vw;
-  height: 78vh;
+  height: auto;
   background-color: #f9f8f8;
   border-radius: 0.4rem;
   padding: 0.4rem;
@@ -10,9 +10,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 1rem;
+  
+  margin: 0,5rem;
 }
 .headerBacklog {
+  margin-top: 1vh;
   background-color: var(--color-principal);
   border-radius: 0.4rem;
   color: #fff;
@@ -38,12 +40,17 @@
   color: black;
   border: 1px solid black;
 }
-
-.tasks {
-  background-color: var(--color-principal);
-  padding: 2rem;
-  border-radius: 0.4rem;
+.tasks{
   display: flex;
-  margin: 0.5rem;
-  color: #fff;
+  flex-direction: column;
+  align-items: center;
+  gap: 1vh;
+  overflow-y: auto;
+  height: 60vh;
+  max-width: 100%;
+  scroll-behavior: smooth;
+}
+
+.tasks::-webkit-scrollbar{
+  display: none;
 }

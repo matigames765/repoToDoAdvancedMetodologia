@@ -1,5 +1,27 @@
 {
-    "backlog":{
-        
-    }
+  "backlog": {
+    "tareas": [
+      {
+        "id": "40bd67c8-048e-446e-a954-950e5a3e9678",
+        "titulo": "tarea 1",
+        "descripcion": "dwdw",
+        "estado": "completada",
+        "fechaLimite": "2025-04-03"
+      },
+      {
+        "id": "97e6e150-29ed-41ca-a6ed-edc1aff112a8",
+        "titulo": "fewfw",
+        "descripcion": "ewfewew",
+        "estado": "en proceso",
+        "fechaLimite": "2025-04-02"
+      },
+      {
+        "id": "5618f333-9ecf-41d4-9d11-f71f9cd8607b",
+        "titulo": "fewdw",
+        "descripcion": "ewfw",
+        "estado": "en proceso",
+        "fechaLimite": "2025-04-03"
+      }
+    ]
+  }
 }

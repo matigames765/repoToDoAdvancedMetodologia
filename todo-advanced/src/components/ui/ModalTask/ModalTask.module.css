@@ -38,6 +38,14 @@
     justify-content: space-between;
 }
 
+.buttonsModalTaskContainer{
+    position: absolute;
+    top: 37vh;
+    left: 2.5vw;
+    width: 15vw;
+    display: flex;
+    justify-content: space-between
+}
 .buttonsModalTask{
     border-radius: 0.2rem;
     padding: 0.2vw;

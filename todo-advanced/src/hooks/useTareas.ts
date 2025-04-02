@@ -1,5 +1,5 @@
 import { useShallow } from "zustand/shallow"
-import { getAllTareasController } from "../data/tasksController"
+import { createTaskController, deleteTaskController, editTaskController, getAllTareasController } from "../data/tasksController"
 import { tareaStore } from "../stores/tareaStore"
 import { ITarea } from "../types/ITarea"
 import Swal from "sweetalert2"
@@ -14,49 +14,59 @@ export const useTareas = () => {
         setArrayTareas: state.setArrayTareas
     })))
 
-    const getTareas = () => {
+    const getTareas = async() => {
         try{
-            return tareas;
+            const tareas = await getAllTareasController()
+            if(tareas) setArrayTareas(tareas)
+            return tareas
         }catch(error){
             console.log("Error al traer las tareas, " + error)
         }
     }
 
-    const crearTarea = (nuevaTarea: ITarea) => {
+    const crearTarea = async(nuevaTarea: ITarea) => {
+        agregarNuevaTarea(nuevaTarea)
         try{
-            agregarNuevaTarea(nuevaTarea)
+            await createTaskController(nuevaTarea)
             Swal.fire({
                 title: "Exito",
                 text: 'Se creo la tarea',
                 icon: 'success'
             })
         }catch(error){
+            eliminarTarea(nuevaTarea.id!)
             console.log("Error al crear la tarea, " + error)
         }
     }
 
-    const deleteTarea = (idTarea: string) => {
+    const deleteTarea = async(idTarea: string) => {
+        const estadoPrevio = tareas.find((el) => el.id === idTarea)
+        eliminarTarea(idTarea)
         try{
-            eliminarTarea(idTarea)
+            await deleteTaskController(idTarea)
             Swal.fire({
                 title: 'Exito',
                 text: 'Se elimino la tarea',
                 icon: 'success'
             })
         }catch(error){
+            if(estadoPrevio) agregarNuevaTarea(estadoPrevio)
             console.log("Error al eliminar la tarea, " + error)
         }
     }
 
-    const actualizarTarea = (tareaEditada: ITarea) => {
+    const actualizarTarea = async(tareaEditada: ITarea) => {
+        const estadoPrevio = tareas.find((el) => el.id === tareaEditada.id)
+        editarTarea(tareaEditada)
         try{
-            editarTarea(tareaEditada)
+            await editTaskController(tareaEditada)
             Swal.fire({
                 title: 'Exito',
                 text: 'Se edito la tarea',
                 icon: 'success'
             })
         }catch(error){
+            if(estadoPrevio) agregarNuevaTarea(estadoPrevio)
             console.log("Error al actualizar la tarea, " + error)
         }
     }

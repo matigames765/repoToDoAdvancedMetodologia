@@ -1,10 +1,11 @@
-import { ChangeEvent, FC, FormEvent, useEffect, useState } from 'react';
+import { ChangeEvent, FormEvent, useEffect, useState } from 'react';
 import styles from './ModalTask.module.css'
 import { ITarea } from '../../../types/ITarea';
 import { tareaStore } from '../../../stores/tareaStore';
 import { useTareas } from '../../../hooks/useTareas';
+import { FC } from "react";
 
-interface IModalTask{
+interface IModalTask {
   handleCloseModal: VoidFunction;
 }
 
@@ -20,13 +21,17 @@ export const ModalTask: FC<IModalTask> = ({handleCloseModal}) => {
   const tareaActiva = tareaStore((state) => state.tareaActiva)
   const setTareaActiva = tareaStore((state) => state.setTareaActiva)
 
-  const {crearTarea} = useTareas()
+  const {crearTarea, actualizarTarea} = useTareas()
 
   const [formValues, setFormValues] = useState(initialState)
 
   useEffect(() => {
-    if(tareaActiva) setTareaActiva(tareaActiva)
-  })
+    if (tareaActiva) {
+      setFormValues(tareaActiva); 
+    } else {
+      setFormValues(initialState); 
+    }
+  }, [tareaActiva]);
 
   const handleChange = (e:ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const {name, value} = e.target
@@ -37,36 +42,72 @@ export const ModalTask: FC<IModalTask> = ({handleCloseModal}) => {
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault()
 
-    crearTarea({...formValues, id: new Date().toDateString()})
+    if(tareaActiva){
+      actualizarTarea({ ...tareaActiva, ...formValues })
+    }else{
+      crearTarea({id: crypto.randomUUID(), ...formValues})
+    }
 
     setTareaActiva(null)
 
     handleCloseModal()
   }
+  
   return (
     <>
-    <div className={styles.containerModalTask}>
-      <h3>Crear tarea</h3>
-      <form onSubmit={handleSubmit}>
-        <div className={styles.contentForm}>
-          <input type='text' required placeholder='Ingrese el título' autoComplete='off' name='titulo' className={styles.informationForm} onChange={handleChange} value={formValues.titulo}/>
-          <textarea placeholder='Ingrese la descripcion' required name='descripcion' className={styles.informationForm} onChange={handleChange} value={formValues.descripcion}/>
-          <label htmlFor="estado">Selecciona el estado</label>
-          <select id='estado' name='estado' required className={styles.informationForm} onChange={handleChange} value={formValues.estado}>
-            <option>pendiente</option>
-            <option>en proceso</option>
-            <option>completada</option>
-          </select>
-          <input type='date' required placeholder='Ingrese fecha limite' autoComplete='off' name='fechaLimite' className={styles.informationForm} onChange={handleChange} value={formValues.fechaLimite}></input>
-        </div>
-      </form>
-    </div>
-    <div className={styles.containerButtonsModalTask}>
-      <button className={styles.buttonsModalTask} onClick={
-        handleCloseModal
-      }>Cancelar</button>
-      <button className={styles.buttonsModalTask} type='submit' onClick={handleCloseModal}>Enviar</button>
-    </div>
+      <div className={styles.containerModalTask}>
+        <h3>{tareaActiva ? "Editar Tarea": "Crear tarea"}</h3>
+        <form onSubmit={handleSubmit}>
+          <div className={styles.contentForm}>
+            <input
+              type="text"
+              required
+              placeholder="Ingrese el título"
+              autoComplete="off"
+              name="titulo"
+              className={styles.informationForm}
+              onChange={handleChange} value={formValues.titulo}
+            />
+            <textarea
+              placeholder="Ingrese la descripcion"
+              required
+              name="descripcion"
+              className={styles.informationForm}
+              onChange={handleChange} value={formValues.descripcion}
+            />
+            <label htmlFor="estado">Selecciona el estado</label>
+            <select
+              id="estado"
+              name="estado"
+              required
+              className={styles.informationForm}
+              onChange={handleChange} value={formValues.estado}
+            >
+              <option value="pendiente">pendiente</option>
+              <option value="en proceso">en proceso</option>
+              <option value="completada">completada</option>
+            </select>
+            <label>Selecciona la fecha limite</label>
+            <input
+              type="date"
+              required
+              placeholder="Ingrese fecha limite"
+              autoComplete="off"
+              name="fechaLimite"
+              className={styles.informationForm}
+              onChange={handleChange} value={formValues.fechaLimite}
+            ></input>
+          </div>
+          <div className={styles.buttonsModalTaskContainer}>
+            <button className={styles.buttonsModalTask} onClick={handleCloseModal}>
+                Cancelar
+            </button>
+            <button className={styles.buttonsModalTask} type="submit">
+            {tareaActiva ? "Editar": "Crear"}
+            </button>
+          </div>
+        </form>
+      </div>
     </>
-  )
-}
+  );
+};

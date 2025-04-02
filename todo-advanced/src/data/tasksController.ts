@@ -21,9 +21,9 @@ export const createTaskController = async (newTask: ITarea) => {
         const tasksBd = await getAllTareasController()
 
         if(tasksBd){
-            editBacklog([...tasksBd, newTask])
+            await editBacklog([...tasksBd, newTask])
         }else{
-            editBacklog([newTask])
+            await editBacklog([newTask])
         }
         
         return newTask
@@ -43,7 +43,7 @@ export const editTaskController = async(updatedTask: ITarea) => {
                 task.id === updatedTask.id ? {...task, ...updatedTask}: task
             ))
 
-            editBacklog(newTasks)
+        await editBacklog(newTasks)
 
         }
 
@@ -63,7 +63,7 @@ export const deleteTaskController = async (idTask: string) => {
         const newTasks = tasksBd.filter((task) => (
             task.id !== idTask))
 
-        editBacklog(newTasks)
+      await editBacklog(newTasks)
       }
     } catch (error) {
       console.log("No se pudo eliminar la tarea", error);
