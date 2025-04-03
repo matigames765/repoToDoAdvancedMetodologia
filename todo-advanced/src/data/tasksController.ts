@@ -1,12 +1,17 @@
 import axios from "axios";
 import { ITarea } from "../types/ITarea";
-import { APIBACKLOG_URL } from "../utils/constantes";
 import { editBacklog } from "../http/backLog";
+import { config } from "dotenv";
+import env from 'env-var'
+
+config()
+
+const apibacklog_url = env.get('APIBACKLOG_URL').asString()
 
 //obtenemos las tareas
 export const getAllTareasController = async (): Promise<ITarea[] | undefined> => {
     try {
-      const response = await axios.get<{tareas: ITarea[]}>(APIBACKLOG_URL);
+      const response = await axios.get<{tareas: ITarea[]}>(apibacklog_url!);
       return response.data.tareas;
     } catch (error) {
       console.log("Error al traer las tareas ", error);

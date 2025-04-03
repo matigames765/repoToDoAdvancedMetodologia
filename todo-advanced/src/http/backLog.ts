@@ -1,13 +1,16 @@
 import axios from "axios";
 import { ITarea } from "../types/ITarea";
 import { IBacklog } from "../types/IBacklog";
-import {APIBACKLOG_URL } from "../utils/constantes";
-
+import {config} from 'dotenv'
+import env from 'env-var'
 
 //Editar backlog
 export const editBacklog = async (tareas: ITarea[]) => {
+  config()
+
+  const apibacklog_url = env.get('APIBACKLOG_URL').asString()
   try {
-    const response = await axios.put<IBacklog>(APIBACKLOG_URL, { tareas: tareas });
+    const response = await axios.put<IBacklog>(apibacklog_url!, { tareas: tareas });
 
     return response.data;
   } catch (error) {
