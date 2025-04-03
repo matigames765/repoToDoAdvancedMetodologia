@@ -4,9 +4,9 @@ import { editBacklog } from "../http/backLog";
 import { config } from "dotenv";
 import env from 'env-var'
 
-config()
 
-const apibacklog_url = env.get('APIBACKLOG_URL').asString()
+
+const apibacklog_url = import.meta.env.VITE_APIBACKLOG_URL;
 
 //obtenemos las tareas
 export const getAllTareasController = async (): Promise<ITarea[] | undefined> => {
