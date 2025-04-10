@@ -1,8 +1,6 @@
 import axios from "axios";
 import { ITarea } from "../types/ITarea";
 import { editBacklog } from "../http/backLog";
-import { config } from "dotenv";
-import env from 'env-var'
 
 
 
