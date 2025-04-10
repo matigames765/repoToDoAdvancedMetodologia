@@ -32,3 +32,25 @@
     color: black;
     border: 1px solid black;
 }
+
+.containerTitleAddSprint{
+    width: 9vw;
+    display: flex;
+    justify-content: space-between;
+}
+
+.buttonAddSprint{
+    width: 2.5vw;
+    background-color: var(--botones-principales);
+    border-radius: 0.4rem;
+    color: white;
+    border: none;
+    transition: background-color 0.7s ease, color 0.7s ease, border 0.7s ease;
+}
+
+.buttonAddSprint:hover{
+    cursor: pointer;
+    background-color: #F9F8F8;
+    color: black;
+    border: 1px solid black;
+}
