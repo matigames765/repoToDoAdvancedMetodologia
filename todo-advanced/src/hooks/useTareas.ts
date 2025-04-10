@@ -66,7 +66,7 @@ export const useTareas = () => {
                 icon: 'success'
             })
         }catch(error){
-            if(estadoPrevio) agregarNuevaTarea(estadoPrevio)
+            if(estadoPrevio) editarTarea(estadoPrevio)
             console.log("Error al actualizar la tarea, " + error)
         }
     }

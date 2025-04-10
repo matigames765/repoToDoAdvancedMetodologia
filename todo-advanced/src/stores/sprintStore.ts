@@ -11,7 +11,7 @@ interface ISprintStore{
     setArraySprints: (arraySprints: ISprint[] ) => void
 }
 
-export const SprintStore = create<ISprintStore>((set) => ({
+export const sprintStore = create<ISprintStore>((set) => ({
     sprints: [],
     sprintActivo: null,
 
