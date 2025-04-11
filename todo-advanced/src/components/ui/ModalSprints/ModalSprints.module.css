@@ -1,46 +1,61 @@
-.containerPrincipalModalSprints{
-    background-color: rgb(217, 217, 217, 0.8);
-    height: 16vw;
-    width: 20vw;
-    position: absolute;
-    top: 20vh;
-    right: 40vw;
-    border-radius: 0.4rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.containerBlur {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(8px);
 }
 
-.contentFormSprints{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1vh;
+.containerPrincipalModalSprints {
+  background-color: rgb(217, 217, 217, 0.8);
+  padding: 0.5rem;
+  backdrop-filter: blur(10px);
+  height: 16vw;
+  width: 20vw;
+  position: absolute;
+  top: 20vh;
+  right: 40vw;
+  border-radius: 0.4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
-.inputsSprints{
-    border-radius: 0.2rem;
-    border: none;
-    padding: 0.2vw;
+.contentFormSprints {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1vh;
 }
 
-.buttonsModalSprintContainer{
-    position: absolute;
-    top: 28vh;
-    left: 2.5vw;
-    width: 15vw;
-    display: flex;
-    justify-content: space-between
+.inputsSprints {
+  border-radius: 0.2rem;
+  border: none;
+  padding: 0.2vw;
 }
 
-.buttonsModalSprint{
-    border-radius: 0.2rem;
-    padding: 0.2vw;
-    border: none;
-    transition: background-color 0.7s ease;
+.buttonsModalSprintContainer {
+  position: absolute;
+  top: 28vh;
+  left: 2.5vw;
+  width: 15vw;
+  display: flex;
+  justify-content: space-between;
 }
 
-.buttonsModalSprint:hover{
-    cursor:pointer;
-    background-color: rgb(213, 117, 230);
+.buttonsModalSprint {
+  border-radius: 0.2rem;
+  padding: 0.2vw;
+  width: 5vw;
+  border: none;
+  transition: background-color 0.7s ease;
+}
+
+.buttonsModalSprint:hover {
+  cursor: pointer;
+  background-color: rgb(213, 117, 230);
 }
