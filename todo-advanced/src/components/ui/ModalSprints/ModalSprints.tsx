@@ -1,7 +1,8 @@
-import { ChangeEvent, FC, FormEvent, useState } from 'react'
+import { ChangeEvent, FC, FormEvent, useEffect, useState } from 'react'
 import styles from './ModalSprints.module.css'
 import { ISprint } from '../../../types/ISprint'
 import { useSprints } from '../../../hooks/useSprints'
+import { sprintStore } from '../../../stores/sprintStore'
 
 interface IPropsModalSprints{
     handleCloseModal: () => void
@@ -15,7 +16,11 @@ const initialState: ISprint = {
 }
 
 export const ModalSprints: FC<IPropsModalSprints> = ({handleCloseModal}) => {
-    const {agregarSprintHook} = useSprints()
+
+    const sprintActivo = sprintStore((state) => state.sprintActivo)
+    const setSprintActivo = sprintStore((state) => state.setSprintActivo)
+
+    const {agregarSprintHook, editarSprintHook} = useSprints()
 
     const [formValues, setFormValues] = useState(initialState)
 
@@ -28,17 +33,29 @@ export const ModalSprints: FC<IPropsModalSprints> = ({handleCloseModal}) => {
     const handleSubmit = (e: FormEvent) => {
         e.preventDefault()
 
-        agregarSprintHook({id: crypto.randomUUID(), ...formValues})
+        if(sprintActivo){
+            editarSprintHook({...sprintActivo, ...formValues})
+        }else{
+            agregarSprintHook({id: crypto.randomUUID(), ...formValues})
+        }
 
         handleCloseModal()
     }
+
+    useEffect(() => {
+        if(sprintActivo){
+            setFormValues(sprintActivo)
+        }else{
+            setFormValues(initialState)
+        }
+    }, [sprintActivo])
 
 
   return (
 
     <div className={styles.containerBlur}>
     <div className={styles.containerPrincipalModalSprints}>
-        <h3>Crear Sprint</h3>
+        <h3>{sprintActivo ? "Editar Sprint": "Crear Sprint"}</h3>
         <form onSubmit={handleSubmit}>
             <div className={styles.contentFormSprints}>
                 <label>Fecha de inicio</label>
@@ -52,7 +69,7 @@ export const ModalSprints: FC<IPropsModalSprints> = ({handleCloseModal}) => {
                 Cancelar
             </button>
             <button className={styles.buttonsModalSprint} type="submit">
-            Crear
+            {sprintActivo ? "Editar": "Crear"}
             </button>
           </div>
         </form>

@@ -54,3 +54,15 @@
     color: black;
     border: 1px solid black;
 }
+
+.sprints{
+    display: flex;
+    flex-direction: column;
+    gap: 1vw;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+}
+
+.sprints::-webkit-scrollbar{
+    display: none;
+}

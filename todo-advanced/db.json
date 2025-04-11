@@ -11,28 +11,6 @@
     ]
   },
   "sprintList": {
-    "sprints": [
-      {
-        "id": "05f091f1-db27-4f4f-baa7-fa930bb3c51d",
-        "fechaInicio": "2025-04-09",
-        "fechaCierre": "2025-04-09",
-        "nombre": "sprint 2",
-        "tareas": []
-      },
-      {
-        "id": "d81046ce-bdb8-4499-8f36-0fcd50282fa4",
-        "fechaInicio": "2025-04-01",
-        "fechaCierre": "2025-04-09",
-        "nombre": "DWADAWDS",
-        "tareas": []
-      },
-      {
-        "id": "ca83433b-e0bd-4781-a5ea-49752ee2290a",
-        "fechaInicio": "2025-04-17",
-        "fechaCierre": "2025-04-20",
-        "nombre": ".........",
-        "tareas": []
-      }
-    ]
+    "sprints": []
   }
 }

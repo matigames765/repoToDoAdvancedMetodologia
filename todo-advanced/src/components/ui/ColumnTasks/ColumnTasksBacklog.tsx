@@ -18,6 +18,7 @@ export const ColumnTasks = () => {
   const [openModalTask, setOpenModalTask] = useState(false)
 
   const handleCloseModal = () => {
+    setTareaActiva(null)
     setOpenModalTask(false);
   };
 

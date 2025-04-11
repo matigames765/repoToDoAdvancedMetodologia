@@ -48,8 +48,6 @@ export const ModalTask: FC<IModalTask> = ({handleCloseModal}) => {
       crearTarea({id: crypto.randomUUID(), ...formValues})
     }
 
-    setTareaActiva(null)
-
     handleCloseModal()
   }
   
