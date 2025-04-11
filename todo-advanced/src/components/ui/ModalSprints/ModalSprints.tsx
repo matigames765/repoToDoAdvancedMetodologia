@@ -35,6 +35,8 @@ export const ModalSprints: FC<IPropsModalSprints> = ({handleCloseModal}) => {
 
 
   return (
+
+    <div className={styles.containerBlur}>
     <div className={styles.containerPrincipalModalSprints}>
         <h3>Crear Sprint</h3>
         <form onSubmit={handleSubmit}>
@@ -54,6 +56,7 @@ export const ModalSprints: FC<IPropsModalSprints> = ({handleCloseModal}) => {
             </button>
           </div>
         </form>
+    </div>
     </div>
   )
 }
