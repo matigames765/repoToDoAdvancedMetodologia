@@ -16,5 +16,16 @@
         "fechaLimite": "2025-04-02"
       }
     ]
+  },
+  "sprintList": {
+    "sprints": [
+      {
+        "id": "a5bb3335-6646-440d-b35d-3643036c7ec8",
+        "fechaInicio": "2025-04-15",
+        "fechaCierre": "2025-04-15",
+        "nombre": "csacas",
+        "tareas": []
+      }
+    ]
   }
 }

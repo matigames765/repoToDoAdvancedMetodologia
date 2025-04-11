@@ -7,7 +7,7 @@ import { editSprintList } from "../http/SprintList"
 const apisprintlisturl = import.meta.env.VITE_APISPRINTLISTURL
 
 //obtener todos los sprints
-export const getSprintsController = async() => {
+export const getSprintsController = async(): Promise<ISprint[] | undefined>  => {
     try{
         const response = await axios.get<{sprints: ISprint[]}>(apisprintlisturl)
 

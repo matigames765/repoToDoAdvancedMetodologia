@@ -1,11 +1,18 @@
+import { FC } from 'react'
+import { ISprint } from '../../../types/ISprint'
 import styles from './CardSprints.module.css'
 
-export const CardSprints = () => {
+interface IPropsCardSprints{
+  key: string,
+  sprint: ISprint
+}
+
+export const CardSprints: FC<IPropsCardSprints> = ({sprint}) => {
   return (
     <div className={styles.containerCardSprints}>
-        <p>sprint 1</p>
-        <p>Inicio: 02.05.25</p>
-        <p>Cierre: 10.06.25</p>
+        <p>{sprint.nombre}</p>
+        <p>Inicio: {sprint.fechaInicio}</p>
+        <p>Cierre: {sprint.fechaCierre}</p>
     </div>
   )
 }

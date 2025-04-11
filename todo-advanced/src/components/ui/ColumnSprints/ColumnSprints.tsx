@@ -1,9 +1,11 @@
-import { FC, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import { CardSprints } from "../CardSprints/CardSprints";
 import styles from "./ColumnSprints.module.css";
 import { Link } from "react-router";
 import { Plus } from "lucide-react";
 import { ModalSprints } from "../ModalSprints/ModalSprints";
+import { getAllTareasController } from "../../../data/tasksController";
+import { useSprints } from "../../../hooks/useSprints";
 
 interface IColumnSprints {
   texto: string;
@@ -12,7 +14,17 @@ interface IColumnSprints {
 
 export const ColumnSprints: FC<IColumnSprints> = ({ texto, link }) => {
 
-  const [openModalSprints, setOpenModalSprints] = useState<boolean>(true)
+  const [openModalSprints, setOpenModalSprints] = useState<boolean>(false)
+
+  const {sprints, getSprintsHook} = useSprints()
+
+  const handleCloseModal = () => {
+    setOpenModalSprints(false)
+  }
+
+  useEffect(() => {
+    getSprintsHook()
+  }, [])
 
   
   return (
@@ -27,9 +39,13 @@ export const ColumnSprints: FC<IColumnSprints> = ({ texto, link }) => {
           setOpenModalSprints(true)
           }}><Plus size={20} color="black" /></button>
       </div>
-      <CardSprints />
+      {
+        sprints.length > 0 ?
+        sprints.map((sprint) => <CardSprints key={sprint.id!} sprint = {sprint}/>) : 
+        <h3>No hay sprints</h3>
+      }
     </div>
-    {openModalSprints && <ModalSprints />}
+    {openModalSprints && <ModalSprints handleCloseModal={handleCloseModal}/>}
     </>
   );
 };

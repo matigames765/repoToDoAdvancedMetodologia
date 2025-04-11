@@ -5,5 +5,5 @@ export interface ISprint{
     fechaInicio: string,
     fechaCierre: string,
     nombre: string,
-    tareas: ITarea[]
+    tareas?: ITarea[]
 }

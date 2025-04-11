@@ -6,7 +6,7 @@ export const editSprintList = async(sprints: ISprint[]) => {
     const apisprintlisturl = import.meta.env.VITE_APISPRINTLIST_URL
 
     try{
-        const response = await axios.put<ISprintList>(apisprintlisturl, sprints)
+        const response = await axios.put<ISprintList>(apisprintlisturl!, {sprints: sprints})
 
         return response.data
     }catch(error){

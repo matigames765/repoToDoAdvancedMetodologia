@@ -1,6 +1,6 @@
 .containerPrincipalModalSprints{
     background-color: rgb(217, 217, 217, 0.8);
-    height: 20vw;
+    height: 16vw;
     width: 20vw;
     position: absolute;
     top: 20vh;
@@ -14,5 +14,33 @@
 .contentFormSprints{
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 1vh;
+}
+
+.inputsSprints{
+    border-radius: 0.2rem;
+    border: none;
+    padding: 0.2vw;
+}
+
+.buttonsModalSprintContainer{
+    position: absolute;
+    top: 28vh;
+    left: 2.5vw;
+    width: 15vw;
+    display: flex;
+    justify-content: space-between
+}
+
+.buttonsModalSprint{
+    border-radius: 0.2rem;
+    padding: 0.2vw;
+    border: none;
+    transition: background-color 0.7s ease;
+}
+
+.buttonsModalSprint:hover{
+    cursor:pointer;
+    background-color: rgb(213, 117, 230);
 }
