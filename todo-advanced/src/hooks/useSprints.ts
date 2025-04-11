@@ -19,6 +19,7 @@ export const useSprints = () => {
     const getSprintsHook = async() => {
         try{
             const sprints = await getSprintsController()
+            console.log("Sprints obtenidos en el hook:", sprints);
             if(sprints) setArraySprints(sprints)
 
             return sprints

@@ -4,13 +4,13 @@ import { editSprintList } from "../http/SprintList"
 
 
 
-const apisprintlisturl = import.meta.env.VITE_APISPRINTLISTURL
+const apisprintlisturl = import.meta.env.VITE_APISPRINTLIST_URL
 
 //obtener todos los sprints
 export const getSprintsController = async(): Promise<ISprint[] | undefined>  => {
     try{
         const response = await axios.get<{sprints: ISprint[]}>(apisprintlisturl)
-
+        console.log("Respuesta completa GET sprints:", response.data)
         return response.data.sprints
     }catch(error){
         console.log("Error al traer las sprints en el controller, " + error)
