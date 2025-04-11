@@ -1,38 +1,8 @@
 {
   "backlog": {
-    "tareas": [
-      {
-        "id": "40bd67c8-048e-446e-a954-950e5a3e9678",
-        "titulo": "tarea 1",
-        "descripcion": "dwdw",
-        "estado": "completada",
-        "fechaLimite": "2025-04-03"
-      },
-      {
-        "id": "97e6e150-29ed-41ca-a6ed-edc1aff112a8",
-        "titulo": "fewfw",
-        "descripcion": "ewfewew",
-        "estado": "en proceso",
-        "fechaLimite": "2025-04-02"
-      }
-    ]
+    "tareas": []
   },
   "sprintList": {
-    "sprints": [
-      {
-        "id": "05f091f1-db27-4f4f-baa7-fa930bb3c51d",
-        "fechaInicio": "2025-04-09",
-        "fechaCierre": "2025-04-09",
-        "nombre": "sprint 2",
-        "tareas": []
-      },
-      {
-        "id": "d81046ce-bdb8-4499-8f36-0fcd50282fa4",
-        "fechaInicio": "2025-04-01",
-        "fechaCierre": "2025-04-09",
-        "nombre": "DWADAWDS",
-        "tareas": []
-      }
-    ]
+    "sprints": []
   }
 }
