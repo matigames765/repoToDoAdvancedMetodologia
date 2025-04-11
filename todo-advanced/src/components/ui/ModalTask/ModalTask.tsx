@@ -55,6 +55,8 @@ export const ModalTask: FC<IModalTask> = ({handleCloseModal}) => {
   
   return (
     <>
+    <div className={styles.containerBlur}>
+
       <div className={styles.containerModalTask}>
         <h3>{tareaActiva ? "Editar Tarea": "Crear tarea"}</h3>
         <form onSubmit={handleSubmit}>
@@ -108,6 +110,7 @@ export const ModalTask: FC<IModalTask> = ({handleCloseModal}) => {
           </div>
         </form>
       </div>
+    </div>
     </>
   );
 };
