@@ -6,3 +6,7 @@ body{
     display: flex;
     flex-direction: row;
 }
+
+.titleNoSeeProgressTask{
+    margin-left: 16vw;
+}

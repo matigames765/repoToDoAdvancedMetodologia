@@ -1,0 +1,75 @@
+.containerBlur {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(8px) brightness(90%);
+  }
+  
+  .containerModalTask {
+      background-color: rgb(217, 217, 217, 0.8);
+      padding: 0.5rem;
+      backdrop-filter: blur(10px);
+      height: 42vh;
+      width: 20vw;
+      position: absolute;
+      top: 20vh;
+      right: 40vw;
+      border-radius: 0.4rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+  }
+  
+  .contentForm {
+    margin-top: 1vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1vh;
+  }
+  
+  .informationForm {
+    border-radius: 0.2rem;
+    padding: 0.3vw;
+    width: 15vw;
+    border: none;
+  }
+  
+  .containerButtonsModalTask {
+    background-color: #d9d9d9;
+    height: 5vh;
+    width: 18vw;
+    position: absolute;
+    top: 57vh;
+    right: 41vw;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .buttonsModalTaskContainer {
+    position: absolute;
+    top: 37vh;
+    left: 2.5vw;
+    width: 15vw;
+    display: flex;
+    justify-content: space-between;
+  }
+  .buttonsModalTask {
+    border-radius: 0.2rem;
+    padding: 0.2vw;
+    border: none;
+    width: 5vw;
+    transition: background-color 0.7s ease;
+  }
+  
+  .buttonsModalTask:hover {
+    cursor: pointer;
+    background-color: rgb(213, 117, 230);
+  }
+  

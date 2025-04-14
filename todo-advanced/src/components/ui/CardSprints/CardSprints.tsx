@@ -1,8 +1,9 @@
 import { FC } from 'react'
 import { ISprint } from '../../../types/ISprint'
 import styles from './CardSprints.module.css'
-import { Pencil, Trash2 } from 'lucide-react'
+import { Eye, Pencil, Trash2 } from 'lucide-react'
 import { useSprints } from '../../../hooks/useSprints'
+import { sprintStore } from '../../../stores/sprintStore'
 
 interface IPropsCardSprints{
   key: string,
@@ -11,6 +12,7 @@ interface IPropsCardSprints{
 }
 
 export const CardSprints: FC<IPropsCardSprints> = ({sprint, handleOpenModalEdit}) => {
+  const setSprintEnProgreso = sprintStore((state) => state.setSprintEnProgreso)
 
   const editarSprint = () => {
     handleOpenModalEdit(sprint)
@@ -24,6 +26,10 @@ export const CardSprints: FC<IPropsCardSprints> = ({sprint, handleOpenModalEdit}
         <p>Cierre: {sprint.fechaCierre}</p>
         <div className={styles.buttonsSprints}>
           <div className={styles.buttonSprintsContainer}>
+            <button className={styles.buttonsHandleSprints} onClick={() => {
+              setSprintEnProgreso(null)
+              setSprintEnProgreso(sprint)
+            }}><Eye size={20} color="black"/></button>
             <button className={styles.buttonsHandleSprints} onClick={editarSprint}><Pencil size={20} color="black"/></button>
             <button className={styles.buttonsHandleSprints} onClick={() => {
               eliminarSprintHook(sprint.id!)

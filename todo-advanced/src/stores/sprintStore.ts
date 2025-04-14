@@ -4,16 +4,19 @@ import { ISprint } from "../types/ISprint";
 interface ISprintStore{
     sprints: ISprint[],
     sprintActivo: ISprint | null,
+    sprintEnProgreso: ISprint | null,
     setSprintActivo: (sprintActivo: ISprint | null) => void
     agregarNuevoSprintState: (nuevoSprint: ISprint) => void
     editarSprintState: (sprintActualizado: ISprint) => void
     eliminarSprintState: (idSprint: string) => void
     setArraySprints: (arraySprints: ISprint[] ) => void
+    setSprintEnProgreso: (sprintEnProgreso: ISprint | null) => void
 }
 
 export const sprintStore = create<ISprintStore>((set) => ({
     sprints: [],
     sprintActivo: null,
+    sprintEnProgreso: null,
 
     //setear el sprint activo
 
@@ -34,5 +37,8 @@ export const sprintStore = create<ISprintStore>((set) => ({
     })),
 
     //setear array de sprints
-    setArraySprints: (arraySprintsIn) => set(() => ({sprints: arraySprintsIn}))
+    setArraySprints: (arraySprintsIn) => set(() => ({sprints: arraySprintsIn})),
+
+    //setear sprint en progreso para la pantalla de tareas
+    setSprintEnProgreso: (sprintEnProgresoIn) => set(() => ({sprintEnProgreso: sprintEnProgresoIn})),
 }))

@@ -13,10 +13,24 @@
   "sprintList": {
     "sprints": [
       {
-        "id": "2c12dd13-58f2-444a-811b-43dc7a28facc",
-        "fechaInicio": "2025-04-04",
-        "fechaCierre": "2025-04-25",
-        "nombre": "lllll",
+        "id": "0b4caed7-d95c-4f96-985f-26b776600169",
+        "fechaInicio": "2025-04-10",
+        "fechaCierre": "2025-04-10",
+        "nombre": "sprint 3",
+        "tareas": []
+      },
+      {
+        "id": "4228b485-9c4e-4954-9ce7-119f65617af3",
+        "fechaInicio": "2025-04-10",
+        "fechaCierre": "2025-04-10",
+        "nombre": "sprint 2",
+        "tareas": []
+      },
+      {
+        "id": "40fe599e-53c9-444b-8636-6127fb64891b",
+        "fechaInicio": "2025-04-17",
+        "fechaCierre": "2025-04-17",
+        "nombre": "sprint 4",
         "tareas": []
       }
     ]
