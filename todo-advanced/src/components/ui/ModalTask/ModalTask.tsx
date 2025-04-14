@@ -19,7 +19,6 @@ const initialState: ITarea = {
 export const ModalTask: FC<IModalTask> = ({handleCloseModal}) => {
 
   const tareaActiva = tareaStore((state) => state.tareaActiva)
-  const setTareaActiva = tareaStore((state) => state.setTareaActiva)
 
   const {crearTarea, actualizarTarea} = useTareas()
 

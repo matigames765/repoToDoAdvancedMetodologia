@@ -1,16 +1,38 @@
-import { ChangeEvent, FormEvent, useState } from 'react'
+import { ChangeEvent, FC, FormEvent, useEffect, useState } from 'react'
 import styles from './ModalTaskProgress.module.css'
 import { ISprint } from '../../../types/ISprint'
 import { ITarea } from '../../../types/ITarea'
+import { sprintStore } from '../../../stores/sprintStore'
+import { useSprints } from '../../../hooks/useSprints'
+import { tareaStore } from '../../../stores/tareaStore'
 
-
+interface IPropsModalTaskProgress{
+    handleCloseModalTaskProgress: () => void
+}
 const initialState: ITarea = {
     titulo: "",
     descripcion: "",
     estado: "pendiente",
     fechaLimite: ""
 }
-export const ModalTaskProgress = () => {
+export const ModalTaskProgress: FC<IPropsModalTaskProgress> = ({handleCloseModalTaskProgress}) => {
+
+    const tareaActiva = tareaStore((state) => state.tareaActiva)
+
+    useEffect(() => {
+        if (tareaActiva) {
+          setFormValues(tareaActiva); 
+        } else {
+          setFormValues(initialState); 
+        }
+    }, [tareaActiva]);
+    
+
+
+    const sprintEnProgreso = sprintStore((state) => state.sprintEnProgreso)
+    const setSprintEnProgreso = sprintStore((state) => state.setSprintEnProgreso)
+
+    const{editarSprintHook} = useSprints()
 
     const [formValues, setFormValues] = useState<ITarea>(initialState)
 
@@ -23,6 +45,24 @@ export const ModalTaskProgress = () => {
     const handleSubmit = (e: FormEvent) => {
         e.preventDefault()
 
+        if(tareaActiva && sprintEnProgreso?.tareas){
+            const index = sprintEnProgreso?.tareas.findIndex(tarea => tarea.id === tareaActiva.id);
+
+            if (index !== undefined && index !== -1) {
+                sprintEnProgreso!.tareas[index] = {
+                ...sprintEnProgreso!.tareas[index],
+                ...formValues
+                };
+            }
+
+            editarSprintHook(sprintEnProgreso)
+        }else{
+            sprintEnProgreso?.tareas?.push({id: crypto.randomUUID(), ...formValues})
+            setSprintEnProgreso(sprintEnProgreso)
+            if(sprintEnProgreso) editarSprintHook(sprintEnProgreso)
+        }
+
+        handleCloseModalTaskProgress()
         
     }
   return (
@@ -30,8 +70,8 @@ export const ModalTaskProgress = () => {
     <div className={styles.containerBlur}>
 
       <div className={styles.containerModalTask}>
-        <h3>Crear tarea</h3>
-        <form>
+        <h3>{tareaActiva ? "Editar Tarea": "Crear Tarea"}</h3>
+        <form onSubmit={handleSubmit}>
           <div className={styles.contentForm}>
             <input
               type="text"
@@ -73,11 +113,11 @@ export const ModalTaskProgress = () => {
             ></input>
           </div>
           <div className={styles.buttonsModalTaskContainer}>
-            <button className={styles.buttonsModalTask}>
+            <button className={styles.buttonsModalTask} onClick={handleCloseModalTaskProgress}>
                 Cancelar
             </button>
             <button className={styles.buttonsModalTask} type="submit">
-             Crear
+             {tareaActiva ? "Editar": "Crear"}
             </button>
           </div>
         </form>

@@ -20,7 +20,6 @@ export const ModalSprints: FC<IPropsModalSprints> = ({handleCloseModal}) => {
     const setSprintEnProgreso = sprintStore((state) => state.setSprintEnProgreso)
 
     const sprintActivo = sprintStore((state) => state.sprintActivo)
-    const setSprintActivo = sprintStore((state) => state.setSprintActivo)
 
     const {agregarSprintHook, editarSprintHook} = useSprints()
 

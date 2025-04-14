@@ -59,6 +59,7 @@
     width: 15vw;
     display: flex;
     justify-content: space-between;
+    margin-top: 1vh;
   }
   .buttonsModalTask {
     border-radius: 0.2rem;

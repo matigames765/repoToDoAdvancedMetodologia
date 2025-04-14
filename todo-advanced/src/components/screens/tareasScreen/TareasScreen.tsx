@@ -23,6 +23,10 @@ export const TareasScreen = () => {
   const handleOpenModalTaskProgress = () => {
     setOpenModalTaskProgress(true)
   }
+
+  const handleCloseModalTaskProgress = () => {
+    setOpenModalTaskProgress(false)
+  }
   return (
     <div>
       <Header />
@@ -30,7 +34,7 @@ export const TareasScreen = () => {
         <ColumnSprints texto="Backlog" link="backlog" />
         {openProgressTask ? <ProgressTasks handleOpenModalTaskProgress={handleOpenModalTaskProgress}/>: <h2 className={styles.titleNoSeeProgressTask}>Para ver el progreso de una sprint haz click en el ojo</h2>}
       </div>
-      {openModalTaskProgress && <ModalTaskProgress />}
+      {openModalTaskProgress && <ModalTaskProgress handleCloseModalTaskProgress={handleCloseModalTaskProgress}/>}
     </div>
   );
 };

@@ -17,7 +17,22 @@
         "fechaInicio": "2025-04-10",
         "fechaCierre": "2025-04-10",
         "nombre": "sprint 3",
-        "tareas": []
+        "tareas": [
+          {
+            "id": "a62a125e-0e7e-423f-a9e4-dde922b247a9",
+            "titulo": "fewfewf",
+            "descripcion": "rgefefef",
+            "estado": "en proceso",
+            "fechaLimite": "2025-04-17"
+          },
+          {
+            "id": "abbfdfa0-fc55-456c-88d3-bfc1dd67e3a6",
+            "titulo": "fewdfwd",
+            "descripcion": "fewwdde",
+            "estado": "completada",
+            "fechaLimite": "2025-04-18"
+          }
+        ]
       },
       {
         "id": "4228b485-9c4e-4954-9ce7-119f65617af3",
