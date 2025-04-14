@@ -11,6 +11,14 @@
     ]
   },
   "sprintList": {
-    "sprints": []
+    "sprints": [
+      {
+        "id": "2c12dd13-58f2-444a-811b-43dc7a28facc",
+        "fechaInicio": "2025-04-04",
+        "fechaCierre": "2025-04-25",
+        "nombre": "lllll",
+        "tareas": []
+      }
+    ]
   }
 }
