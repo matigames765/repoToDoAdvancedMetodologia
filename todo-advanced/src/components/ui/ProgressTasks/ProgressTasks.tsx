@@ -5,12 +5,13 @@ import styles from './ProgressTasks.module.css'
 import { ITarea } from '../../../types/ITarea'
 import { tareaStore } from '../../../stores/tareaStore'
 
+
 interface IPropsProgressTasks{
   handleOpenModalTaskProgress: () => void
 }
 
 export const ProgressTasks: FC<IPropsProgressTasks> = ({handleOpenModalTaskProgress}) => {
-  const [openModalCreateTaskProgress, setOpenModalCreateTaskProgress] = useState(false);
+
   const sprintEnProgreso = sprintStore((state) => state.sprintEnProgreso);
 
   const setTareaActiva = tareaStore((state) => state.setTareaActiva)
@@ -18,10 +19,6 @@ export const ProgressTasks: FC<IPropsProgressTasks> = ({handleOpenModalTaskProgr
   const arrayTareasPendientes: ITarea[] = sprintEnProgreso?.tareas?.filter(t => t.estado === "pendiente") || [];
   const arrayTareasEnProgreso: ITarea[] = sprintEnProgreso?.tareas?.filter(t => t.estado === "en proceso") || [];
   const arrayTareasCompletadas: ITarea[] = sprintEnProgreso?.tareas?.filter(t => t.estado === "completada") || [];
-
-  const handleCloseModalTaskProgress = () => {
-    setOpenModalCreateTaskProgress(false);
-  };
 
   
   return (

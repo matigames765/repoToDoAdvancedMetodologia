@@ -12,7 +12,7 @@
   background-color: rgb(217, 217, 217, 0.8);
   padding: 0.5rem;
   backdrop-filter: blur(10px);
-  height: 16vw;
+  height: 20vw;
   width: 20vw;
   position: absolute;
   top: 20vh;
@@ -29,7 +29,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1vh;
+  gap: 0.4vh;
 }
 
 .inputsSprints {
@@ -41,7 +41,7 @@
 
 .buttonsModalSprintContainer {
   position: absolute;
-  top: 28vh;
+  top: 38vh;
   left: 2.5vw;
   width: 15vw;
   display: flex;
@@ -60,3 +60,17 @@
   cursor: pointer;
   background-color: rgb(213, 117, 230);
 }
+
+.errorMessage{
+  color: red;
+  min-height: 1em;
+  font-size: 0.75rem;
+}
+
+.validEnter{
+  color: black;
+  min-height: 1em;
+  font-size: 0.75rem;
+}
+
+

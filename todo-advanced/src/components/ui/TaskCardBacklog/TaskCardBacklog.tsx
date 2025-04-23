@@ -1,8 +1,10 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import { ITarea } from "../../../types/ITarea";
 import styles from "./TaskCardBacklog.module.css";
 import { Pencil, Trash2 } from "lucide-react";
 import { useTareas } from "../../../hooks/useTareas";
+import { useSprints } from "../../../hooks/useSprints";
+import { sprintStore } from "../../../stores/sprintStore";
 
 interface ITaskCardBacklog {
   key: string,
@@ -11,10 +13,19 @@ interface ITaskCardBacklog {
 }
 
 export const TaskCardBacklog: FC<ITaskCardBacklog> = ({ tarea, handleOpenModalEdit }) => {
+
+  const sprintEnProgreso = sprintStore((state) => state.sprintEnProgreso)
+  const setSprintEnProgreso = sprintStore((state) => state.setSprintEnProgreso)
+  const { editarSprintHook } = useSprints();
+
+  const {sprints} = useSprints()
+
+  const [sprintSeleccionado, setSprintSeleccionado] = useState<string>("")
+
   const {deleteTarea} = useTareas()
 
   const eliminarTareaById = () => {
-    deleteTarea(tarea.id!)
+    deleteTarea(tarea.id!, 0)
   }
 
   const editarTarea = () => {
@@ -34,13 +45,6 @@ export const TaskCardBacklog: FC<ITaskCardBacklog> = ({ tarea, handleOpenModalEd
           <p>
             <b>ID:</b> {tarea.id}
           </p>
-
-          {/* ESTADO */}
-          <p>
-            <b>estado: </b>
-            {tarea.estado}
-          </p>
-
           {/* FECHA LIMITE */}
           <p>
             <b>fecha Limite: </b>
@@ -49,6 +53,40 @@ export const TaskCardBacklog: FC<ITaskCardBacklog> = ({ tarea, handleOpenModalEd
 
           {/* BOTONES */}
           <div className={styles.buttonsContainer}>
+          <select
+            value={sprintSeleccionado}
+            onChange={(e) => {
+              const sprintId = e.target.value;
+              setSprintSeleccionado(sprintId);
+
+              const sprint = sprints.find(s => s.id === sprintId);
+              if (!sprint) return;
+
+              if(sprintEnProgreso?.id === sprintId){
+                const nuevoSprintEnProgreso = {
+                  ...sprintEnProgreso,
+                  tareas: [...(sprintEnProgreso.tareas || []), tarea]
+                };
+                setSprintEnProgreso(nuevoSprintEnProgreso)
+              }
+
+              const nuevoSprint = {
+                ...sprint,
+                tareas: [...(sprint.tareas || []), tarea]
+              };
+
+              editarSprintHook(nuevoSprint, 1);  
+              deleteTarea(tarea.id!, 1)
+            }}
+            className={styles.select}
+          >
+          <option value="">Selecciona un sprint</option>
+          {sprints.map((sprint) => (
+          <option key={sprint.id} value={sprint.id}>
+            {sprint.nombre} 
+          </option>
+          ))}
+          </select>
             <button className={styles.buttons} onClick={editarTarea}>
               <Pencil size={20} color="black" />
             </button>

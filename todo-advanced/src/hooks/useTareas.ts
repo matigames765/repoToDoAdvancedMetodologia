@@ -39,16 +39,30 @@ export const useTareas = () => {
         }
     }
 
-    const deleteTarea = async(idTarea: string) => {
+    const deleteTarea = async(idTarea: string, caso?: number) => {
         const estadoPrevio = tareas.find((el) => el.id === idTarea)
+        if (caso === 0){
+            const confirm = await Swal.fire({
+                title: "¿Estas seguro?",
+                text: "Esta accion no se puede deshacer",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonText: "Si, eliminar",
+                cancelButtonText: "Cancelar"
+            })
+            if (!confirm.isConfirmed) return;
+        }
         eliminarTarea(idTarea)
         try{
             await deleteTaskController(idTarea)
-            Swal.fire({
-                title: 'Exito',
-                text: 'Se elimino la tarea',
-                icon: 'success'
-            })
+            if (caso === 0){
+                Swal.fire({
+                    title: 'Exito',
+                    text: 'Se elimino la tarea',
+                    icon: 'success'
+                })
+            }
+            
         }catch(error){
             if(estadoPrevio) agregarNuevaTarea(estadoPrevio)
             console.log("Error al eliminar la tarea, " + error)

@@ -2,11 +2,18 @@
   "backlog": {
     "tareas": [
       {
-        "id": "97e6e150-29ed-41ca-a6ed-edc1aff112a8",
-        "titulo": "fewfw",
-        "descripcion": "ewfewew",
-        "estado": "en proceso",
-        "fechaLimite": "2025-04-02"
+        "id": "95c0808b-4fa9-46e9-8582-191d1a2c0d39",
+        "titulo": "tegrgtg",
+        "descripcion": "iyyhiuhuigiuguiigut",
+        "estado": "pendiente",
+        "fechaLimite": "2025-04-10"
+      },
+      {
+        "id": "6782e67d-1fbe-4620-bd93-2f1da2777335",
+        "titulo": "gfgff",
+        "descripcion": "khiihihhkhh",
+        "estado": "pendiente",
+        "fechaLimite": "2025-04-10"
       }
     ]
   },
@@ -16,21 +23,63 @@
         "id": "0b4caed7-d95c-4f96-985f-26b776600169",
         "fechaInicio": "2025-04-10",
         "fechaCierre": "2025-04-10",
-        "nombre": "sprint 3",
+        "nombre": "ddwdwqdwq",
         "tareas": [
           {
-            "id": "a62a125e-0e7e-423f-a9e4-dde922b247a9",
-            "titulo": "fewfewf",
-            "descripcion": "rgefefef",
+            "id": "b544fc0f-fcee-4c5a-821a-139367d7ce3b",
+            "titulo": "fewewfe",
+            "descripcion": "grerf",
             "estado": "en proceso",
-            "fechaLimite": "2025-04-17"
+            "fechaLimite": "2025-04-04"
           },
           {
-            "id": "abbfdfa0-fc55-456c-88d3-bfc1dd67e3a6",
-            "titulo": "fewdfwd",
-            "descripcion": "fewwdde",
+            "id": "4b5ef330-6b6d-42e6-8d25-bcfb1d1fbd91",
+            "titulo": "fr3f4",
+            "descripcion": "4rfrf34f4",
             "estado": "completada",
-            "fechaLimite": "2025-04-18"
+            "fechaLimite": "2025-04-04"
+          },
+          {
+            "id": "9e2de5e1-0dc5-4096-acfd-7c200dce8ff1",
+            "titulo": "fewdfw",
+            "descripcion": "fedeewd",
+            "estado": "en proceso",
+            "fechaLimite": "2025-04-09"
+          },
+          {
+            "id": "1340378b-7c2b-4c6c-9f5d-14d1252fa670",
+            "titulo": "frefe",
+            "descripcion": "fefdew",
+            "estado": "en proceso",
+            "fechaLimite": "2025-04-11"
+          },
+          {
+            "id": "b87bce25-eba4-4cb5-848b-6c38df9bcdd6",
+            "titulo": "tarea 1",
+            "descripcion": "efewd",
+            "estado": "pendiente",
+            "fechaLimite": "2025-04-09"
+          },
+          {
+            "id": "60fe1e7a-151b-47ba-bb00-b9f417062843",
+            "titulo": "fewfe",
+            "descripcion": "fewre",
+            "estado": "pendiente",
+            "fechaLimite": "2025-04-10"
+          },
+          {
+            "id": "1b8cde47-18ad-4cfa-87d6-2f0c0f0623d4",
+            "titulo": "fwtfe4rre",
+            "descripcion": "3er3wr",
+            "estado": "pendiente",
+            "fechaLimite": "2025-04-10"
+          },
+          {
+            "id": "075d05cc-478b-4b66-9f9f-dc2d7fe3e7ea",
+            "titulo": "guygyu",
+            "descripcion": "bjhbjhj",
+            "estado": "completada",
+            "fechaLimite": "2025-04-09"
           }
         ]
       },
@@ -39,13 +88,120 @@
         "fechaInicio": "2025-04-10",
         "fechaCierre": "2025-04-10",
         "nombre": "sprint 2",
-        "tareas": []
+        "tareas": [
+          {
+            "id": "4fc19c51-80ab-43e9-87ee-20ce85510008",
+            "titulo": "csaxs",
+            "descripcion": "dawas",
+            "estado": "en proceso",
+            "fechaLimite": "2025-04-24"
+          },
+          {
+            "id": "b87bce25-eba4-4cb5-848b-6c38df9bcdd6",
+            "titulo": "tarea 1",
+            "descripcion": "efewd",
+            "estado": "pendiente",
+            "fechaLimite": "2025-04-09"
+          },
+          {
+            "id": "5825fe55-317c-4b4e-9ac9-42084d9f6917",
+            "titulo": "vsdfvsd",
+            "descripcion": "cdscuhii",
+            "estado": "pendiente",
+            "fechaLimite": "2025-04-09"
+          },
+          {
+            "id": "a85f1417-d4c6-4456-b5fc-5187c9939ce3",
+            "titulo": "tarea 3",
+            "descripcion": "fewfew",
+            "estado": "pendiente",
+            "fechaLimite": "2025-04-09"
+          },
+          {
+            "id": "16e80d6c-392e-4ce1-a478-7dc7b5283ecc",
+            "titulo": "dwdwqd",
+            "descripcion": "dwqdqw",
+            "estado": "pendiente",
+            "fechaLimite": "2025-04-09"
+          },
+          {
+            "id": "b55125d9-e121-4b05-a2b4-ef4d4c880181",
+            "titulo": "csdcs",
+            "descripcion": "cdscsdd",
+            "estado": "pendiente",
+            "fechaLimite": "2025-04-16"
+          }
+        ]
       },
       {
         "id": "40fe599e-53c9-444b-8636-6127fb64891b",
         "fechaInicio": "2025-04-17",
         "fechaCierre": "2025-04-17",
         "nombre": "sprint 4",
+        "tareas": [
+          {
+            "id": "abbfdfa0-fc55-456c-88d3-bfc1dd67e3a6",
+            "titulo": "fewdfwd",
+            "descripcion": "fewwdde",
+            "estado": "completada",
+            "fechaLimite": "2025-04-18"
+          },
+          {
+            "id": "a62a125e-0e7e-423f-a9e4-dde922b247a9",
+            "titulo": "fewfewf",
+            "descripcion": "rgefefef",
+            "estado": "completada",
+            "fechaLimite": "2025-04-17"
+          },
+          {
+            "id": "eba3a27b-dd8a-4a86-a7f5-fa7bc2980875",
+            "titulo": "tarea 7",
+            "descripcion": "fewfe",
+            "estado": "en proceso",
+            "fechaLimite": "2025-04-03"
+          },
+          {
+            "id": "a3ab0a02-f067-4837-91f4-6ee227842ed0",
+            "titulo": "csacsadc",
+            "descripcion": "dcscsadsa",
+            "estado": "en proceso",
+            "fechaLimite": "2025-04-16"
+          },
+          {
+            "id": "19b3785b-f6c6-4c68-99fd-966cb34a6700",
+            "titulo": "saddxa",
+            "descripcion": "casdxas",
+            "estado": "completada",
+            "fechaLimite": "2025-04-30"
+          },
+          {
+            "id": "e58ae97c-3bc5-48d2-a3b7-8df198f702d6",
+            "titulo": "gregfer",
+            "descripcion": "grefre",
+            "estado": "completada",
+            "fechaLimite": "2025-04-23"
+          },
+          {
+            "id": "1002f257-baa6-4c1d-ae83-bd4642e0a357",
+            "titulo": "iugi",
+            "descripcion": "ghuibhio",
+            "estado": "completada",
+            "fechaLimite": "2025-04-09"
+          },
+          {
+            "id": "f8657b28-6525-411f-aa75-db7129fd44ab",
+            "titulo": "cdscs",
+            "descripcion": "csadcasscsax",
+            "estado": "completada",
+            "fechaLimite": "2025-04-09"
+          }
+        ]
+      },
+      {
+        "id": "492a7e91-a4f3-462d-9075-ff7be2438032",
+        "fechaInicio": "2025-04-10",
+        "fechaCierre": "2025-04-09",
+        "nombre": "VDFVDSFSV",
         "tareas": []
       }
     ]

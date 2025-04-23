@@ -50,3 +50,10 @@
     border: none;
   }
   
+  .select{
+    background-color: transparent;
+    border: 2px solid #4b0082;
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 6px;
+  }

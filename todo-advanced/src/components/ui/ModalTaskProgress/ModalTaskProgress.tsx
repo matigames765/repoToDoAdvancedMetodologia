@@ -1,10 +1,10 @@
 import { ChangeEvent, FC, FormEvent, useEffect, useState } from 'react'
 import styles from './ModalTaskProgress.module.css'
-import { ISprint } from '../../../types/ISprint'
 import { ITarea } from '../../../types/ITarea'
 import { sprintStore } from '../../../stores/sprintStore'
 import { useSprints } from '../../../hooks/useSprints'
 import { tareaStore } from '../../../stores/tareaStore'
+import { FormDataTask, taskSchema } from '../../../schemas/taskSchema'
 
 interface IPropsModalTaskProgress{
     handleCloseModalTaskProgress: () => void
@@ -15,9 +15,16 @@ const initialState: ITarea = {
     estado: "pendiente",
     fechaLimite: ""
 }
+
+const initialStateFormTask: FormDataTask = {
+  fechaLimite: "",
+  titulo: "",
+  descripcion: ""
+}
 export const ModalTaskProgress: FC<IPropsModalTaskProgress> = ({handleCloseModalTaskProgress}) => {
 
     const tareaActiva = tareaStore((state) => state.tareaActiva)
+    const setTareaActiva = tareaStore((state) => state.setTareaActiva)
 
     useEffect(() => {
         if (tareaActiva) {
@@ -36,10 +43,61 @@ export const ModalTaskProgress: FC<IPropsModalTaskProgress> = ({handleCloseModal
 
     const [formValues, setFormValues] = useState<ITarea>(initialState)
 
-    const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const [errors, setErrors] = useState<FormDataTask>(initialStateFormTask)
+    
+    const[colorErrorFechaLimite, setColorErrorFechaLimite] = useState(false)
+    const[colorErrorTitulo, setColorErrorTitulo] = useState(false)
+    const[colorErrorDescripcion, setcolorErrorDescripcion] = useState(false)
+    
+    const [habilitado, setHabilitado] = useState<boolean>(true)
+
+    useEffect(() => {
+      if(errors.fechaLimite === "Ingreso valido" && errors.titulo === "Ingreso valido" && errors.descripcion === "Ingreso valido"){
+        setHabilitado(false)
+    }else if ((errors.fechaLimite === "Ingreso valido" || errors.titulo=== "Ingreso valido" || errors.descripcion === "Ingreso valido") && tareaActiva){
+       setHabilitado(false)
+    }else{
+        setHabilitado(true)
+    }
+    }, [errors])
+  
+    useEffect(() => {
+      if (errors.fechaLimite== "Ingreso valido"){
+          setColorErrorFechaLimite(true)
+      }else{
+          setColorErrorFechaLimite(false)
+      }
+  }, [errors.fechaLimite])
+  
+  useEffect(() => {
+      if (errors.titulo == "Ingreso valido"){
+          setColorErrorTitulo(true)
+      }else{
+          setColorErrorTitulo(false)
+      }
+  }, [errors.titulo])
+  
+  useEffect(() => {
+      if (errors.descripcion == "Ingreso valido"){
+          setcolorErrorDescripcion(true)
+      }else{
+          setcolorErrorDescripcion(false)
+      }
+  }, [errors.descripcion])
+    
+
+    const handleChange = async(e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
         const {name, value} = e.target
 
         setFormValues((prev) => ({...prev, [`${name}`]: value}))
+
+        try{
+              await taskSchema.validateAt(name, {...formValues, [`${name}`]: value})
+            
+              setErrors((prev) => ({...prev, [`${name}`]: "Ingreso valido"}))
+        }catch(error: any){
+              setErrors((prev) => ({...prev, [`${name}`]: error.message}))
+        }
     }
 
     const handleSubmit = (e: FormEvent) => {
@@ -55,11 +113,13 @@ export const ModalTaskProgress: FC<IPropsModalTaskProgress> = ({handleCloseModal
                 };
             }
 
-            editarSprintHook(sprintEnProgreso)
+            editarSprintHook(sprintEnProgreso, 2)
+
+            setTareaActiva(null)
         }else{
             sprintEnProgreso?.tareas?.push({id: crypto.randomUUID(), ...formValues})
             setSprintEnProgreso(sprintEnProgreso)
-            if(sprintEnProgreso) editarSprintHook(sprintEnProgreso)
+            if(sprintEnProgreso) editarSprintHook(sprintEnProgreso, 1)
         }
 
         handleCloseModalTaskProgress()
@@ -82,6 +142,7 @@ export const ModalTaskProgress: FC<IPropsModalTaskProgress> = ({handleCloseModal
               className={styles.informationForm}
               onChange={handleChange} value={formValues.titulo}
             />
+            <p className={colorErrorTitulo ? styles.validEnter : styles.errorMessage}>{errors.titulo}</p>
             <textarea
               placeholder="Ingrese la descripcion"
               required
@@ -89,18 +150,7 @@ export const ModalTaskProgress: FC<IPropsModalTaskProgress> = ({handleCloseModal
               className={styles.informationForm}
               onChange={handleChange} value={formValues.descripcion}
             />
-            <label htmlFor="estado">Selecciona el estado</label>
-            <select
-              id="estado"
-              name="estado"
-              required
-              className={styles.informationForm}
-              onChange={handleChange} value={formValues.estado}
-            >
-              <option value="pendiente">pendiente</option>
-              <option value="en proceso">en proceso</option>
-              <option value="completada">completada</option>
-            </select>
+            <p className={colorErrorDescripcion ? styles.validEnter : styles.errorMessage}>{errors.descripcion}</p>
             <label>Selecciona la fecha limite</label>
             <input
               type="date"
@@ -111,12 +161,16 @@ export const ModalTaskProgress: FC<IPropsModalTaskProgress> = ({handleCloseModal
               className={styles.informationForm}
               onChange={handleChange} value={formValues.fechaLimite}
             ></input>
+            <p className={colorErrorFechaLimite ? styles.validEnter : styles.errorMessage}>{errors.fechaLimite}</p>
           </div>
           <div className={styles.buttonsModalTaskContainer}>
-            <button className={styles.buttonsModalTask} onClick={handleCloseModalTaskProgress}>
+            <button className={styles.buttonsModalTask} 
+            onClick={() => {
+              setTareaActiva(null)
+              handleCloseModalTaskProgress()}}>
                 Cancelar
             </button>
-            <button className={styles.buttonsModalTask} type="submit">
+            <button className={styles.buttonsModalTask} type="submit" disabled = {habilitado}>
              {tareaActiva ? "Editar": "Crear"}
             </button>
           </div>

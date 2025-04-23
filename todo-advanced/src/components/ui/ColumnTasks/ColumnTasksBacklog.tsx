@@ -5,6 +5,7 @@ import { useTareas } from "../../../hooks/useTareas";
 import { TaskCardBacklog } from "../TaskCardBacklog/TaskCardBacklog";
 import { ITarea } from "../../../types/ITarea";
 import { tareaStore } from "../../../stores/tareaStore";
+
 export const ColumnTasks = () => {
 
   const setTareaActiva = tareaStore((state) => state.setTareaActiva)

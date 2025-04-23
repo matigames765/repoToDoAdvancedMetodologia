@@ -54,7 +54,7 @@
   
   .buttonsModalTaskContainer {
     position: absolute;
-    top: 37vh;
+    top: 38vh;
     left: 2.5vw;
     width: 15vw;
     display: flex;
@@ -72,5 +72,17 @@
   .buttonsModalTask:hover {
     cursor: pointer;
     background-color: rgb(213, 117, 230);
+  }
+
+  .errorMessage{
+    color: red;
+    min-height: 1em;
+    font-size: 0.75rem;
+  }
+  
+  .validEnter{
+    color: black;
+    min-height: 1em;
+    font-size: 0.75rem;
   }
   

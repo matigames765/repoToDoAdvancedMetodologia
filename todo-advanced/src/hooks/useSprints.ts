@@ -45,16 +45,39 @@ export const useSprints = () => {
     }
 
     //editamos la sprint en el hook
-    const editarSprintHook = async(sprintActualizado: ISprint) => {
+    const editarSprintHook = async(sprintActualizado: ISprint,caso?: number) => {
         const estadoPrevio = sprints.find((el) => el.id === sprintActualizado.id)
         editarSprintState(sprintActualizado)
         try{
             await editarSprintController(sprintActualizado)
+            if (caso === 0){
             Swal.fire({
-                title: "Exito",
-                text: "Se edito el sprint con exito",
-                icon: "success"
+                title: 'Exito',
+                text: 'Se edito el sprint con exito',
+                icon: 'success'
             })
+            }
+            if (caso === 1){
+                Swal.fire({
+                    title: 'Exito',
+                    text: 'Se creo la tarea dentro de la sprint',
+                    icon: 'success'
+                })
+            }
+            if (caso === 2){
+                Swal.fire({
+                    title: 'Exito',
+                    text: 'Se edito la tarea dentro de la sprint',
+                    icon: 'success'
+                })
+            }
+            if (caso === 3){
+                Swal.fire({
+                    title: 'Exito',
+                    text: 'Se elimino la tarea dentro de la sprint',
+                    icon: 'success'
+                })
+            }
         }catch(error){
             if(estadoPrevio) editarSprintState(estadoPrevio)
             console.log("Error al editar sprint en el hook, " +  error)
@@ -64,6 +87,15 @@ export const useSprints = () => {
     //eliminamos la sprint en el hook
     const eliminarSprintHook = async(idSprint: string) => {
         const sprintPrevio = sprints.find((el) => el.id === idSprint)
+        const confirm = await Swal.fire({
+            title: "¿Estas seguro?",
+            text: "Esta accion no se puede deshacer",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonText: "Si, eliminar",
+            cancelButtonText: "Cancelar"
+        })
+        if (!confirm.isConfirmed) return;
         eliminarSprintState(idSprint)
         try{
             await eliminarSprintController(idSprint)
