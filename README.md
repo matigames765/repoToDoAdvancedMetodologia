@@ -1,0 +1,1 @@
+El proyecto se levanta ejecutando el comando npm run dev en la terminal y haciendo control click en la url para verlo en el navegador, este proyecto es un administrador de tareas donde las tareas se organizaran por sprints.
