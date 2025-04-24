@@ -15,7 +15,7 @@ interface IColumnSprints {
 
 export const ColumnSprints: FC<IColumnSprints> = ({ texto, link }) => {
 
-  const setSprintEnProgreso = sprintStore((state) => state.setSprintEnProgreso)
+  
 
   const setSprintActivo = sprintStore((state) => state.setSprintActivo)
 
