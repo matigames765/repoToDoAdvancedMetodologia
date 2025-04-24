@@ -39,13 +39,6 @@
             "fechaLimite": "2025-04-11"
           },
           {
-            "id": "b87bce25-eba4-4cb5-848b-6c38df9bcdd6",
-            "titulo": "tarea 1",
-            "descripcion": "efewd",
-            "estado": "pendiente",
-            "fechaLimite": "2025-04-09"
-          },
-          {
             "id": "60fe1e7a-151b-47ba-bb00-b9f417062843",
             "titulo": "fewfe",
             "descripcion": "fewre",
@@ -172,6 +165,13 @@
             "descripcion": "casdxas",
             "estado": "completada",
             "fechaLimite": "2025-04-30"
+          },
+          {
+            "id": "b87bce25-eba4-4cb5-848b-6c38df9bcdd6",
+            "titulo": "tarea 1",
+            "descripcion": "efewd",
+            "estado": "pendiente",
+            "fechaLimite": "2025-04-09"
           }
         ]
       },
@@ -182,11 +182,11 @@
         "nombre": "VDFVDSFSV",
         "tareas": [
           {
-            "id": "b87bce25-eba4-4cb5-848b-6c38df9bcdd6",
-            "titulo": "tarea 1",
-            "descripcion": "efewd",
+            "id": "5121100c-8914-4377-ade8-d2f2c0809b10",
+            "titulo": "vsgvsgs",
+            "descripcion": "sdfsfsffsef",
             "estado": "pendiente",
-            "fechaLimite": "2025-04-09"
+            "fechaLimite": "2025-04-11"
           }
         ]
       }

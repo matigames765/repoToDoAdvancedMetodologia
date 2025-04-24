@@ -30,8 +30,6 @@ export const ModalSprints: FC<IPropsModalSprints> = ({handleCloseModal}) => {
 
     const {agregarSprintHook, editarSprintHook} = useSprints()
 
-    //const [formValues, setFormValues] = useState(initialState)
-
     const [formValues, setFormValues] = useState(initialState)
     const [errors, setErrors] = useState<FormDataSprint>(initialStateFormSprint)
 

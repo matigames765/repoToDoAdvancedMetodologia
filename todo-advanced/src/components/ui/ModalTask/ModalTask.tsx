@@ -136,18 +136,6 @@ useEffect(() => {
               onChange={handleChange} value={formValues.descripcion}
             />
             <p className={colorErrorDescripcion ? styles.validEnter : styles.errorMessage}>{errors.descripcion}</p>
-            {/* <label htmlFor="estado">Selecciona el estado</label>
-            <select
-              id="estado"
-              name="estado"
-              required
-              className={styles.informationForm}
-              onChange={handleChange} value={formValues.estado}
-            >
-              <option value="pendiente">pendiente</option>
-              <option value="en proceso">en proceso</option>
-              <option value="completada">completada</option>
-            </select> */}
             <label>Selecciona la fecha limite</label>
             <input
               type="date"
