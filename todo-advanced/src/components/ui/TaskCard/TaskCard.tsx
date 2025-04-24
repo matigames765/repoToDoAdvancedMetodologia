@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import { ITarea } from '../../../types/ITarea'
 import styles from './TaskCard.module.css'
-import {Check,Pencil, Trash2} from 'lucide-react'
+import {Pencil, Trash2, SkipForward} from 'lucide-react'
 import { tareaStore } from '../../../stores/tareaStore'
 import { sprintStore } from '../../../stores/sprintStore'
 import { useTareas } from '../../../hooks/useTareas'
@@ -114,7 +114,7 @@ export const TaskCard: FC<IPropsTaskCard> = ({tarea, handleOpenModalTaskProgress
         <p >Fecha límite: {tarea.fechaLimite}</p>
         <div className={styles.buttonsTasks}>
           <button className={styles.buttonSentToBacklog} onClick={handleSendToBacklog}>Enviar a backlog</button>
-          <button className={styles.buttonsHandleTasks}><Check size={20} color="black" onClick={handleChangeStatus}/></button>
+          <button className={styles.buttonsHandleTasks}><SkipForward size={20} color="black" onClick={handleChangeStatus}/></button>
           <button className={styles.buttonsHandleTasks}><Pencil size={20} color="black" onClick={handleOpenModalEditTaskProgress}/></button>
           <button className={styles.buttonsHandleTasks}><Trash2 size={20} color="black" onClick={handleDeleteTaskProgress}/></button>
         </div>
